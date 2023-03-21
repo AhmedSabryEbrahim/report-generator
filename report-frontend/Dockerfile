@@ -3,7 +3,7 @@ FROM node:alpine as builder
 COPY . /app
 WORKDIR /app
 RUN npm install
-RUN npm run build --prod
+RUN npm run build -omit=dev
 
 FROM nginx:alpine
 EXPOSE 80
