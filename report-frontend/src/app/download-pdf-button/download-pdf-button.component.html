@@ -1,0 +1,29 @@
+<div class="card-container">
+  <mat-card class="card">
+    <mat-card-content>
+      <h1>Stocks comparison</h1> 
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Select a Stock</mat-label>
+        <mat-select [formControl]="symbolControl1">
+          <mat-option *ngFor="let symbol of symbols" [value]="symbol">{{symbol}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Select a Stock</mat-label>
+        <mat-select [formControl]="symbolControl2">
+          <mat-option *ngFor="let symbol of symbols" [value]="symbol">{{symbol}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" (click)="compareTwoStocks()">Compare</button>
+      <button mat-raised-button color="warning" *ngIf="stocks" (click)="downloadPDF()">Download PDF</button>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,13 @@
+version: '3'
+services:
+  frontend:
+    build: ./report-frontend/
+    ports:
+      - 4200:80
+    depends_on:
+      - service
+
+  service:
+    build: ./report-generator/
+    ports:
+      - 8080:8080
